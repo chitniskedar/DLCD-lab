@@ -1,0 +1,57 @@
+$date
+	Thu Aug 13 15:00:19 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_simple_circuit $end
+$var wire 1 ! D $end
+$var wire 1 " E $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$var reg 1 % C $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0%
+0$
+0#
+1"
+1!
+$end
+#20
+0!
+1%
+0"
+#40
+1!
+0%
+1"
+1$
+#60
+0!
+1%
+0"
+#80
+1!
+0%
+1"
+0$
+1#
+#100
+0!
+1%
+0"
+#120
+1!
+0%
+1"
+1$
+#140
+1%
+0"
+#200

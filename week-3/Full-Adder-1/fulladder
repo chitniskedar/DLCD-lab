@@ -1,0 +1,100 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0122E940 .scope module, "tb_fulladder" "tb_fulladder" 2 1;
+ .timescale 0 0;
+v01285108_0 .var "cin", 0 0;
+v01285160_0 .net "cout", 0 0, L_01261308; 1 drivers
+v01284DF0_0 .var "i0", 0 0;
+v01285210_0 .var "i1", 0 0;
+v01285318_0 .net "sum", 0 0, L_01261340; 1 drivers
+S_0122E0C0 .scope module, "FA1" "fa" 2 6, 3 29, S_0122E940;
+ .timescale 0 0;
+v01284CE8_0 .net "cin", 0 0, v01285108_0; 1 drivers
+v01285058_0 .alias "cout", 0 0, v01285160_0;
+v01284C38_0 .net "i0", 0 0, v01284DF0_0; 1 drivers
+v012850B0_0 .net "i1", 0 0, v01285210_0; 1 drivers
+v012851B8_0 .alias "sum", 0 0, v01285318_0;
+v01284FA8_0 .net "w1", 0 0, L_01261458; 1 drivers
+v01284D40_0 .net "w2", 0 0, L_01261180; 1 drivers
+v01284C90_0 .net "w3", 0 0, L_01261110; 1 drivers
+S_0122DB70 .scope module, "G1" "xor2" 3 35, 3 2, S_0122E0C0;
+ .timescale 0 0;
+L_01261458 .functor XOR 1, v01284DF0_0, v01285210_0, C4<0>, C4<0>;
+v01284E48_0 .alias "a", 0 0, v01284C38_0;
+v01285268_0 .alias "b", 0 0, v012850B0_0;
+v012852C0_0 .alias "c", 0 0, v01284FA8_0;
+S_0122E1D0 .scope module, "G2" "xor2" 3 36, 3 2, S_0122E0C0;
+ .timescale 0 0;
+L_01261340 .functor XOR 1, L_01261458, v01285108_0, C4<0>, C4<0>;
+v01223F68_0 .alias "a", 0 0, v01284FA8_0;
+v012236A0_0 .alias "b", 0 0, v01284CE8_0;
+v012236F8_0 .alias "c", 0 0, v01285318_0;
+S_0122DD08 .scope module, "G3" "and2" 3 38, 3 11, S_0122E0C0;
+ .timescale 0 0;
+L_01261180 .functor AND 1, v01284DF0_0, v01285210_0, C4<1>, C4<1>;
+v01262288_0 .alias "a", 0 0, v01284C38_0;
+v01223EB8_0 .alias "b", 0 0, v012850B0_0;
+v01223F10_0 .alias "c", 0 0, v01284D40_0;
+S_0122DC80 .scope module, "G4" "and2" 3 39, 3 11, S_0122E0C0;
+ .timescale 0 0;
+L_01261110 .functor AND 1, L_01261458, v01285108_0, C4<1>, C4<1>;
+v012215E8_0 .alias "a", 0 0, v01284FA8_0;
+v012621D8_0 .alias "b", 0 0, v01284CE8_0;
+v01262230_0 .alias "c", 0 0, v01284C90_0;
+S_0122E148 .scope module, "G5" "or2" 3 41, 3 20, S_0122E0C0;
+ .timescale 0 0;
+L_01261308 .functor OR 1, L_01261180, L_01261110, C4<0>, C4<0>;
+v01221538_0 .alias "a", 0 0, v01284D40_0;
+v0122B8A0_0 .alias "b", 0 0, v01284C90_0;
+v01221590_0 .alias "c", 0 0, v01285160_0;
+    .scope S_0122E940;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "fulladder.vcd";
+    %vpi_call 2 11 "$dumpvars", 1'sb0, S_0122E940;
+    %vpi_call 2 13 "$monitor", $time, " i0=%b, i1=%b, cin=%b, sum=%b, cout=%b", v01284DF0_0, v01285210_0, v01285108_0, v01285318_0, v01285160_0;
+    %delay 0, 0;
+    %set/v v01284DF0_0, 0, 1;
+    %set/v v01285210_0, 0, 1;
+    %set/v v01285108_0, 0, 1;
+    %delay 20, 0;
+    %set/v v01284DF0_0, 0, 1;
+    %set/v v01285210_0, 0, 1;
+    %set/v v01285108_0, 1, 1;
+    %delay 20, 0;
+    %set/v v01284DF0_0, 0, 1;
+    %set/v v01285210_0, 1, 1;
+    %set/v v01285108_0, 0, 1;
+    %delay 20, 0;
+    %set/v v01284DF0_0, 0, 1;
+    %set/v v01285210_0, 1, 1;
+    %set/v v01285108_0, 1, 1;
+    %delay 20, 0;
+    %set/v v01284DF0_0, 1, 1;
+    %set/v v01285210_0, 0, 1;
+    %set/v v01285108_0, 0, 1;
+    %delay 20, 0;
+    %set/v v01284DF0_0, 1, 1;
+    %set/v v01285210_0, 0, 1;
+    %set/v v01285108_0, 1, 1;
+    %delay 20, 0;
+    %set/v v01284DF0_0, 1, 1;
+    %set/v v01285210_0, 1, 1;
+    %set/v v01285108_0, 0, 1;
+    %delay 20, 0;
+    %set/v v01284DF0_0, 1, 1;
+    %set/v v01285210_0, 1, 1;
+    %set/v v01285108_0, 1, 1;
+    %delay 20, 0;
+    %vpi_call 2 26 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "fulladder_tb.v";
+    "fulladder.v";

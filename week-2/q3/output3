@@ -1,0 +1,90 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0131E3C0 .scope module, "tb_circuit3" "tb_circuit3" 2 1;
+ .timescale 0 0;
+v011FFB38_0 .var "a2", 0 0;
+v011FFA30_0 .var "b2", 0 0;
+v011FF8D0_0 .var "c2", 0 0;
+v011FF980_0 .net "z", 0 0, L_0131B1D0; 1 drivers
+S_0131E448 .scope module, "M1" "circuit3" 2 4, 3 13, S_0131E3C0;
+ .timescale 0 0;
+v01313718_0 .net "a2", 0 0, v011FFB38_0; 1 drivers
+v011FFBE8_0 .net "b2", 0 0, v011FFA30_0; 1 drivers
+v011FFDA0_0 .net "c2", 0 0, v011FF8D0_0; 1 drivers
+v011FF9D8_0 .net "w1", 0 0, L_0131ED18; 1 drivers
+v011FFC40_0 .net "w2", 0 0, L_0131B320; 1 drivers
+v011FFC98_0 .net "w3", 0 0, L_0131B240; 1 drivers
+v011FFF00_0 .alias "z", 0 0, v011FF980_0;
+S_0131DBC8 .scope module, "M1" "and2" 3 17, 3 1, S_0131E448;
+ .timescale 0 0;
+L_0131ED18 .functor AND 1, v011FF8D0_0, v011FFA30_0, C4<1>, C4<1>;
+v01313610_0 .alias "b", 0 0, v011FFBE8_0;
+v01313668_0 .alias "c", 0 0, v011FFDA0_0;
+v013136C0_0 .alias "w1", 0 0, v011FF9D8_0;
+S_0131D9A8 .scope module, "M2" "or2" 3 18, 3 7, S_0131E448;
+ .timescale 0 0;
+L_0131B320 .functor OR 1, L_0131ED18, v011FFB38_0, C4<0>, C4<0>;
+v01313228_0 .alias "a", 0 0, v01313718_0;
+v01313280_0 .alias "d", 0 0, v011FFC40_0;
+v013132D8_0 .alias "w1", 0 0, v011FF9D8_0;
+S_0131DDE8 .scope module, "M3" "and2" 3 19, 3 1, S_0131E448;
+ .timescale 0 0;
+L_0131B240 .functor AND 1, v011FFA30_0, v011FFB38_0, C4<1>, C4<1>;
+v01314058_0 .alias "b", 0 0, v01313718_0;
+v013140B0_0 .alias "c", 0 0, v011FFBE8_0;
+v01314108_0 .alias "w1", 0 0, v011FFC98_0;
+S_0131DB40 .scope module, "M4" "or2" 3 20, 3 7, S_0131E448;
+ .timescale 0 0;
+L_0131B1D0 .functor OR 1, L_0131B320, L_0131B240, C4<0>, C4<0>;
+v013148E0_0 .alias "a", 0 0, v011FFC98_0;
+v01314938_0 .alias "d", 0 0, v011FF980_0;
+v01314990_0 .alias "w1", 0 0, v011FFC40_0;
+    .scope S_0131E3C0;
+T_0 ;
+    %vpi_call 2 8 "$dumpfile", "circuit3.vcd";
+    %vpi_call 2 9 "$dumpvars", 2'sb01, S_0131E3C0;
+    %set/v v011FFB38_0, 0, 1;
+    %set/v v011FFA30_0, 0, 1;
+    %set/v v011FF8D0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v011FFB38_0, 0, 1;
+    %set/v v011FFA30_0, 0, 1;
+    %set/v v011FF8D0_0, 1, 1;
+    %delay 20, 0;
+    %set/v v011FFB38_0, 0, 1;
+    %set/v v011FFA30_0, 1, 1;
+    %set/v v011FF8D0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v011FFB38_0, 0, 1;
+    %set/v v011FFA30_0, 1, 1;
+    %set/v v011FF8D0_0, 1, 1;
+    %delay 20, 0;
+    %set/v v011FFB38_0, 1, 1;
+    %set/v v011FFA30_0, 0, 1;
+    %set/v v011FF8D0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v011FFB38_0, 1, 1;
+    %set/v v011FFA30_0, 0, 1;
+    %set/v v011FF8D0_0, 1, 1;
+    %delay 20, 0;
+    %set/v v011FFB38_0, 1, 1;
+    %set/v v011FFA30_0, 1, 1;
+    %set/v v011FF8D0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v011FFB38_0, 1, 1;
+    %set/v v011FFA30_0, 1, 1;
+    %set/v v011FF8D0_0, 1, 1;
+    %delay 20, 0;
+    %vpi_call 2 28 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "simple_circuit_tb.v";
+    "simple_circuit.v";
