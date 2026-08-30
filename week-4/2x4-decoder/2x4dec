@@ -1,0 +1,90 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01238548 .scope module, "dec2to4_tb" "dec2to4_tb" 2 3;
+ .timescale -9 -12;
+v0123DDD8_0 .var "a", 1 0;
+v0123DBC8_0 .var "en", 0 0;
+RS_012741E4 .resolv tri, L_0123DE30, L_0126FAE0, L_0126FF00, L_012701C0;
+v0123DCD0_0 .net8 "y", 3 0, RS_012741E4; 4 drivers
+S_01237A20 .scope module, "uut" "dec2to4" 2 9, 3 1, S_01238548;
+ .timescale 0 0;
+L_01234260 .functor NOT 1, L_0126F928, C4<0>, C4<0>, C4<0>;
+L_0123E070 .functor AND 1, v0123DBC8_0, L_01234260, C4<1>, C4<1>;
+L_0123E520 .functor NOT 1, L_01270110, C4<0>, C4<0>, C4<0>;
+L_0123E590 .functor AND 1, L_0123E070, L_0123E520, C4<1>, C4<1>;
+L_0123E900 .functor NOT 1, L_0126FA30, C4<0>, C4<0>, C4<0>;
+L_0123E970 .functor AND 1, v0123DBC8_0, L_0123E900, C4<1>, C4<1>;
+L_0123E858 .functor AND 1, L_0123E970, L_0126FC98, C4<1>, C4<1>;
+L_0123E698 .functor AND 1, v0123DBC8_0, L_0126F8D0, C4<1>, C4<1>;
+L_0123E8C8 .functor NOT 1, L_0126FC40, C4<0>, C4<0>, C4<0>;
+L_0123E6D0 .functor AND 1, L_0123E698, L_0123E8C8, C4<1>, C4<1>;
+L_01271048 .functor AND 1, v0123DBC8_0, L_0126F980, C4<1>, C4<1>;
+L_01271010 .functor AND 1, L_01271048, L_0126FDF8, C4<1>, C4<1>;
+v01234158_0 .net *"_s10", 0 0, L_0123E520; 1 drivers
+v012341B0_0 .net *"_s12", 0 0, L_0123E590; 1 drivers
+v01234208_0 .net *"_s17", 0 0, L_0126FA30; 1 drivers
+v012332C0_0 .net *"_s18", 0 0, L_0123E900; 1 drivers
+v01233318_0 .net *"_s20", 0 0, L_0123E970; 1 drivers
+v0123DF38_0 .net *"_s23", 0 0, L_0126FC98; 1 drivers
+v0123D960_0 .net *"_s24", 0 0, L_0123E858; 1 drivers
+v0123DC78_0 .net *"_s29", 0 0, L_0126F8D0; 1 drivers
+v0123D858_0 .net *"_s3", 0 0, L_0126F928; 1 drivers
+v0123D8B0_0 .net *"_s30", 0 0, L_0123E698; 1 drivers
+v0123DAC0_0 .net *"_s33", 0 0, L_0126FC40; 1 drivers
+v0123DB70_0 .net *"_s34", 0 0, L_0123E8C8; 1 drivers
+v0123DC20_0 .net *"_s36", 0 0, L_0123E6D0; 1 drivers
+v0123DD80_0 .net *"_s4", 0 0, L_01234260; 1 drivers
+v0123DA10_0 .net *"_s41", 0 0, L_0126F980; 1 drivers
+v0123D908_0 .net *"_s42", 0 0, L_01271048; 1 drivers
+v0123DE88_0 .net *"_s45", 0 0, L_0126FDF8; 1 drivers
+v0123DF90_0 .net *"_s46", 0 0, L_01271010; 1 drivers
+v0123DEE0_0 .net *"_s6", 0 0, L_0123E070; 1 drivers
+v0123DD28_0 .net *"_s9", 0 0, L_01270110; 1 drivers
+v0123DA68_0 .net "a", 1 0, v0123DDD8_0; 1 drivers
+v0123D9B8_0 .net "en", 0 0, v0123DBC8_0; 1 drivers
+v0123DB18_0 .alias "y", 3 0, v0123DCD0_0;
+L_0123DE30 .part/pv L_0123E590, 0, 1, 4;
+L_0126F928 .part v0123DDD8_0, 1, 1;
+L_01270110 .part v0123DDD8_0, 0, 1;
+L_0126FAE0 .part/pv L_0123E858, 1, 1, 4;
+L_0126FA30 .part v0123DDD8_0, 1, 1;
+L_0126FC98 .part v0123DDD8_0, 0, 1;
+L_0126FF00 .part/pv L_0123E6D0, 2, 1, 4;
+L_0126F8D0 .part v0123DDD8_0, 1, 1;
+L_0126FC40 .part v0123DDD8_0, 0, 1;
+L_012701C0 .part/pv L_01271010, 3, 1, 4;
+L_0126F980 .part v0123DDD8_0, 1, 1;
+L_0126FDF8 .part v0123DDD8_0, 0, 1;
+    .scope S_01238548;
+T_0 ;
+    %vpi_call 2 16 "$dumpfile", "dec2to4.vcd";
+    %vpi_call 2 17 "$dumpvars", 1'sb0, S_01238548;
+    %set/v v0123DBC8_0, 0, 1;
+    %set/v v0123DDD8_0, 0, 2;
+    %delay 10000, 0;
+    %set/v v0123DBC8_0, 1, 1;
+    %set/v v0123DDD8_0, 0, 2;
+    %delay 10000, 0;
+    %movi 8, 1, 2;
+    %set/v v0123DDD8_0, 8, 2;
+    %delay 10000, 0;
+    %movi 8, 2, 2;
+    %set/v v0123DDD8_0, 8, 2;
+    %delay 10000, 0;
+    %set/v v0123DDD8_0, 1, 2;
+    %delay 10000, 0;
+    %set/v v0123DBC8_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 26 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "2x4decoder_tb.v";
+    "2x4decoder.v";
